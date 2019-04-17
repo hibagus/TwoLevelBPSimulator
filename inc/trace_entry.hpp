@@ -13,12 +13,12 @@ http://www.bagus.my.id
 
 class trace_entry
 {
-  unsigned int branch_addr ;
-  bool         branch_outcome;
-
 public:
-  trace_entry(unsigned int branch_addr, bool branch_outcome);
-  unsigned int getBranchAddr();
-  bool getBranchOutcome();
+	trace_entry(unsigned int branch_addr, bool branch_outcome);
+    unsigned int getBranchAddr();
+    bool getBranchOutcome();
+private:
+    unsigned int branch_addr ;
+    bool         branch_outcome;	
 };
 #endif
