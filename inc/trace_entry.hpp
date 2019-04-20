@@ -17,8 +17,9 @@ public:
 	trace_entry(unsigned int branch_addr, bool branch_outcome);
     unsigned int getBranchAddr();
     bool getBranchOutcome();
+	void reset(unsigned int branch_addr, bool branch_outcome);
 private:
-    unsigned int branch_addr ;
-    bool         branch_outcome;	
+    unsigned int _branch_addr ;
+    bool         _branch_outcome;	
 };
 #endif

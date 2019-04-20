@@ -12,16 +12,22 @@ http://www.bagus.my.id
 
 trace_entry::trace_entry(unsigned int branch_addr, bool branch_outcome)
 {
-  branch_addr    = branch_addr;
-  branch_outcome = branch_outcome;
+    this->_branch_addr    = branch_addr;
+    this->_branch_outcome = branch_outcome;
 }
 
 unsigned int trace_entry::getBranchAddr()
 {
-	return branch_addr;
+	return this->_branch_addr;
 }
 
 bool trace_entry::getBranchOutcome()
 {
-	return branch_outcome;
+	return this->_branch_outcome;
+}
+
+void trace_entry::reset(unsigned int branch_addr, bool branch_outcome)
+{
+	this->_branch_addr    = branch_addr;
+    this->_branch_outcome = branch_outcome;
 }
