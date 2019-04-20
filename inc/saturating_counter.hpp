@@ -32,7 +32,8 @@ public:
 	bool isTaken();
 	bool isNotTaken();
 	bool getCounterStatus();
+	void printCounterStatus();
 private:
-    counter_status status;
+    counter_status _status;
 };
 #endif

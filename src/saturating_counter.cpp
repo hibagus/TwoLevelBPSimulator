@@ -9,39 +9,40 @@ http://www.bagus.my.id
 */
 
 #include "saturating_counter.hpp"
+#include <iostream>
 
 saturating_counter::saturating_counter()
 {
-	status = weak_nottaken;
+	this->_status = weak_nottaken;
 }
 
 saturating_counter::saturating_counter(counter_status initial)
 {
-	status = initial;
+	this->_status = initial;
 }
 
 void saturating_counter::updateTaken()
 {
-	switch(status)
+	switch(this->_status)
 	{
 		case strong_taken :
 		{
-			status = strong_taken;
+			this->_status = strong_taken;
 			break;
 		}
 		case weak_taken :
 		{
-			status = strong_taken;
+			this->_status = strong_taken;
 			break;
 		}
 		case weak_nottaken :
 		{
-			status = weak_taken;
+			this->_status = weak_taken;
 			break;
 		}
 		case strong_nottaken :
 		{
-			status = weak_nottaken;
+			this->_status = weak_nottaken;
 			break;
 		}
 	}
@@ -49,26 +50,26 @@ void saturating_counter::updateTaken()
 
 void saturating_counter::updateNotTaken()
 {
-	switch(status)
+	switch(this->_status)
 	{
 		case strong_taken :
 		{
-			status = weak_taken;
+			this->_status = weak_taken;
 			break;
 		}
 		case weak_taken :
 		{
-			status = weak_nottaken;
+			this->_status = weak_nottaken;
 			break;
 		}
 		case weak_nottaken :
 		{
-			status = strong_nottaken;
+			this->_status = strong_nottaken;
 			break;
 		}
 		case strong_nottaken :
 		{
-			status = strong_nottaken;
+			this->_status = strong_nottaken;
 			break;
 		}
 	}
@@ -76,17 +77,17 @@ void saturating_counter::updateNotTaken()
 
 void saturating_counter::reset()
 {
-	status = weak_nottaken;
+	this->_status = weak_nottaken;
 }
 
 void saturating_counter::reset(counter_status initial)
 {
-	status = initial;
+	this->_status = initial;
 }
 
 bool saturating_counter::isTaken()
 {
-	if((status==strong_taken)||(status==weak_taken))
+	if((this->_status==strong_taken)||(this->_status==weak_taken))
 	{
 		return true;
 	}
@@ -97,7 +98,7 @@ bool saturating_counter::isTaken()
 }
 bool saturating_counter::isNotTaken()
 {
-	if((status==strong_nottaken)||(status==weak_nottaken))
+	if((this->_status==strong_nottaken)||(this->_status==weak_nottaken))
 	{
 		return true;
 	}
@@ -109,5 +110,32 @@ bool saturating_counter::isNotTaken()
 
 bool saturating_counter::getCounterStatus()
 {
-	return status;
+	return this->_status;
+}
+
+void saturating_counter::printCounterStatus()
+{
+	switch(this->_status)
+	{
+		case strong_taken :
+		{
+			std::cout <<"Strong Taken";
+			break;
+		}
+		case weak_taken :
+		{
+			std::cout <<"Weak Taken";
+			break;
+		}
+		case weak_nottaken :
+		{
+			std::cout <<"Weak NOT Taken";
+			break;
+		}
+		case strong_nottaken :
+		{
+			std::cout <<"Strong NOT Taken";
+			break;
+		}
+	}
 }
