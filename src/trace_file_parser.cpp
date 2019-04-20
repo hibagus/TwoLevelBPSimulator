@@ -13,12 +13,13 @@ http://www.bagus.my.id
 #include<string>
 #include<fstream>
 #include<sstream>
+#include<iostream>
 
 trace_file_parser::trace_file_parser(std::string filename)
 : _currenttraceentry(0,0)
 {
   this->_filename = filename;
-  this->_tracefile.open(filename.c_str());
+  this->_tracefile.open(filename.c_str(),std::ifstream::in);
   this->_linenumber = 0;
 }
 
@@ -26,7 +27,7 @@ void trace_file_parser::reset(std::string filename)
 {
 	this->_tracefile.close();
 	this->_filename = filename;
-	this->_tracefile.open(filename.c_str());
+	this->_tracefile.open(filename.c_str(), std::ifstream::in);
 	this->_linenumber = 0;
 }
 
@@ -39,18 +40,17 @@ trace_entry trace_file_parser::getNextEntry()
 {
 	unsigned int branchaddress;
 	bool branchoutcome;
-	trace_entry readEntry(0,0);
 	
 	if(this->_tracefile >> branchaddress >> branchoutcome)
 	{
-		readEntry.reset(branchaddress, branchoutcome);
+		_currenttraceentry.reset(branchaddress, branchoutcome);
 		this->_linenumber++;
 	}
 	else
 	{
-		readEntry.reset(0,0);
+		_currenttraceentry.reset(0,0);
 	}
-	return readEntry;
+	return _currenttraceentry;
 }
 
 std::string trace_file_parser::getCurrentFileName()

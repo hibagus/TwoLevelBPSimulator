@@ -1,6 +1,7 @@
 #include <iostream>
 #include "saturating_counter.hpp"
 #include "branch_history_register.hpp"
+#include "trace_file_parser.hpp"
 using namespace std;
 
 int main() 
@@ -70,6 +71,100 @@ int main()
 	bhr.updateNotTaken();
 	cout << "Binary: " << bhr.getBinaryString() << " | Value: " << bhr.getLongValue() << endl;
 	bhr.updateNotTaken();
+	
+	trace_file_parser tracefile("tracetest.in");
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	tracefile.getNextEntry();
+	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
 	
 	
 	//cout << "Something is " << newsomething.getSum();
