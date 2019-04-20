@@ -15,7 +15,7 @@ saturating_counter::saturating_counter(counter_status initial)
 	status = initial;
 }
 
-void saturating_counter::incrementCounter()
+void saturating_counter::updateTaken()
 {
 	switch(status)
 	{
@@ -42,7 +42,7 @@ void saturating_counter::incrementCounter()
 	}
 }
 
-void saturating_counter::decrementCounter()
+void saturating_counter::updateNotTaken()
 {
 	switch(status)
 	{

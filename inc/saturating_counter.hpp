@@ -24,8 +24,8 @@ class saturating_counter
 {
 public:
 	saturating_counter(counter_status initial);
-    void incrementCounter();
-	void decrementCounter();
+    void updateTaken();
+	void updateNotTaken();
 	bool isTaken();
 	bool isNotTaken();
 	bool getCounterStatus();
