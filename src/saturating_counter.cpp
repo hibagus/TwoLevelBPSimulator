@@ -10,6 +10,11 @@ http://www.bagus.my.id
 
 #include "saturating_counter.hpp"
 
+saturating_counter::saturating_counter()
+{
+	status = weak_nottaken;
+}
+
 saturating_counter::saturating_counter(counter_status initial)
 {
 	status = initial;
@@ -68,6 +73,17 @@ void saturating_counter::updateNotTaken()
 		}
 	}
 }
+
+void saturating_counter::reset()
+{
+	status = weak_nottaken;
+}
+
+void saturating_counter::reset(counter_status initial)
+{
+	status = initial;
+}
+
 bool saturating_counter::isTaken()
 {
 	if((status==strong_taken)||(status==weak_taken))

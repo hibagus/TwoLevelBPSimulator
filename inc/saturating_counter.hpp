@@ -23,9 +23,12 @@ enum counter_status
 class saturating_counter
 {
 public:
+    saturating_counter();
 	saturating_counter(counter_status initial);
     void updateTaken();
 	void updateNotTaken();
+	void reset();
+	void reset(counter_status initial);
 	bool isTaken();
 	bool isNotTaken();
 	bool getCounterStatus();
