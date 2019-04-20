@@ -11,6 +11,8 @@ http://www.bagus.my.id
 #ifndef SATURATING_COUNTER_H
 #define SATURATING_COUNTER_H
 
+#include <string>
+
 enum counter_status
 {
 	strong_taken,
@@ -32,7 +34,7 @@ public:
 	bool isTaken();
 	bool isNotTaken();
 	bool getCounterStatus();
-	void getCounterStatusString();
+	std::string getCounterStatusString();
 private:
     counter_status _status;
 };
