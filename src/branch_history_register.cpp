@@ -10,7 +10,6 @@ http://www.bagus.my.id
 
 #include "branch_history_register.hpp"
 #include <bitset>
-#include <iostream>
 #include <string>
 
 
@@ -109,10 +108,10 @@ unsigned int branch_history_register::getLength()
 	return this->_length;
 }
 
-void branch_history_register::printBinary()
+std::string branch_history_register::getBinaryString()
 {
 	std::string bitstring = std::bitset<64>(this->_value).to_string();
-	std::cout << bitstring.substr(64-this->_length,63);
+	return bitstring.substr(64-this->_length,63);
 }
 
 void branch_history_register::_truncateMSB()

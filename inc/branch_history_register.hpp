@@ -11,6 +11,8 @@ http://www.bagus.my.id
 #ifndef BRANCH_HISTORY_REGISTER_H
 #define BRANCH_HISTORY_REGISTER_H
 
+#include <string>
+
 class branch_history_register
 {
 public:
@@ -26,8 +28,7 @@ public:
 	unsigned long long getLongValue();
 	unsigned int getIntValue();
 	unsigned int getLength();
-	void printBinary();
-	void printHex();
+	std::string getBinaryString();
 private:
     unsigned long long _value;
 	unsigned int _length;
