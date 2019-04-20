@@ -32,7 +32,7 @@ public:
 	bool isTaken();
 	bool isNotTaken();
 	bool getCounterStatus();
-	void printCounterStatus();
+	void getCounterStatusString();
 private:
     counter_status _status;
 };

@@ -9,7 +9,7 @@ http://www.bagus.my.id
 */
 
 #include "saturating_counter.hpp"
-#include <iostream>
+#include <string>
 
 saturating_counter::saturating_counter()
 {
@@ -113,29 +113,31 @@ bool saturating_counter::getCounterStatus()
 	return this->_status;
 }
 
-void saturating_counter::printCounterStatus()
+std::string saturating_counter::getCounterStatusString()
 {
+	std::string output;
 	switch(this->_status)
 	{
 		case strong_taken :
 		{
-			std::cout <<"Strong Taken";
+			output = "Strong Taken";
 			break;
 		}
 		case weak_taken :
 		{
-			std::cout <<"Weak Taken";
+			output = "Weak Taken";
 			break;
 		}
 		case weak_nottaken :
 		{
-			std::cout <<"Weak NOT Taken";
+			output = "Weak NOT Taken";
 			break;
 		}
 		case strong_nottaken :
 		{
-			std::cout <<"Strong NOT Taken";
+			output = "Strong NOT Taken";
 			break;
 		}
 	}
+	return output;
 }
