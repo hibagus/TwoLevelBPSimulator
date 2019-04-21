@@ -1,5 +1,6 @@
 #include <iostream>
 #include "saturating_counter.hpp"
+#include "branch_history_table.hpp"
 #include "branch_history_table_entry.hpp"
 #include "branch_history_register.hpp"
 #include "trace_file_parser.hpp"
@@ -203,6 +204,26 @@ int main()
 	bht_entry_test.isTakenAutoReplace(20000);
 	cout <<"0 | " << bht_entry_test.getEntryStringDecimal() << " |" << endl;
 	
+	branch_history_table bhttest(4);
+	bhttest.printTableDecimal();
+	cout << endl;
+	cout<< "Current Status: " << bhttest.isTakenAutoReplace(0) << endl;
+	cout<< "Current Status: " << bhttest.isTakenAutoReplace(1) << endl;
+	cout<< "Current Status: " << bhttest.isTakenAutoReplace(2) << endl;
+	bhttest.printTableDecimal();
+	cout << endl;
+	bhttest.updateTaken(0);
+	bhttest.updateTaken(0);
+	cout<< "Current Status: " << bhttest.isTakenAutoReplace(0) << endl;
+	bhttest.updateTaken(1);
+	cout<< "Current Status: " << bhttest.isTakenAutoReplace(0) << endl;
+	bhttest.updateTaken(2);
+	cout<< "Current Status: " << bhttest.isTakenAutoReplace(0) << endl;
+	bhttest.printTableDecimal();
+	cout << endl;
+	cout<< "Current Status: " << bhttest.isTakenAutoReplace(16384) << endl;
+	bhttest.printTableDecimal();
+	cout << endl;
 	
 	//cout << "Something is " << newsomething.getSum();
     return 0;
