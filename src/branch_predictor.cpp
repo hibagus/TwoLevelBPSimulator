@@ -1,5 +1,6 @@
 #include <iostream>
 #include "saturating_counter.hpp"
+#include "branch_history_table_entry.hpp"
 #include "branch_history_register.hpp"
 #include "trace_file_parser.hpp"
 using namespace std;
@@ -165,6 +166,42 @@ int main()
 	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
 	tracefile.getNextEntry();
 	cout << "Current Entry is: "<< tracefile.getCurrentTraceEntryString() << " | filestatus: " << tracefile.isTraceFileGood() << endl;
+	
+	branch_history_table_entry bht_entry_test;
+	cout <<"0 | " << bht_entry_test.getEntryStringDecimal() << " |" << endl;
+	bht_entry_test.updateTaken();
+	bht_entry_test.isTakenAutoReplace(0);
+	cout <<"0 | " << bht_entry_test.getEntryStringDecimal() << " |" << endl;
+	bht_entry_test.updateTaken();
+	bht_entry_test.isTakenAutoReplace(0);
+	cout <<"0 | " << bht_entry_test.getEntryStringDecimal() << " |" << endl;
+	bht_entry_test.updateTaken();
+	bht_entry_test.isTakenAutoReplace(0);
+	cout <<"0 | " << bht_entry_test.getEntryStringDecimal() << " |" << endl;
+	bht_entry_test.updateTaken();
+	bht_entry_test.isTakenAutoReplace(0);
+	cout <<"0 | " << bht_entry_test.getEntryStringDecimal() << " |" << endl;
+	bht_entry_test.updateNotTaken();
+	bht_entry_test.isTakenAutoReplace(0);
+	cout <<"0 | " << bht_entry_test.getEntryStringDecimal() << " |" << endl;
+	bht_entry_test.updateNotTaken();
+	bht_entry_test.isTakenAutoReplace(0);
+	cout <<"0 | " << bht_entry_test.getEntryStringDecimal() << " |" << endl;
+	bht_entry_test.updateTaken();
+	bht_entry_test.isTakenAutoReplace(0);
+	cout <<"0 | " << bht_entry_test.getEntryStringDecimal() << " |" << endl;
+	bht_entry_test.updateTaken();
+	bht_entry_test.isTakenAutoReplace(1000);
+	cout <<"0 | " << bht_entry_test.getEntryStringDecimal() << " |" << endl;
+	bht_entry_test.updateTaken();
+	bht_entry_test.isTakenAutoReplace(1000);
+	cout <<"0 | " << bht_entry_test.getEntryStringDecimal() << " |" << endl;
+	bht_entry_test.updateTaken();
+	bht_entry_test.isTakenAutoReplace(1000);
+	cout <<"0 | " << bht_entry_test.getEntryStringDecimal() << " |" << endl;
+	bht_entry_test.updateTaken();
+	bht_entry_test.isTakenAutoReplace(20000);
+	cout <<"0 | " << bht_entry_test.getEntryStringDecimal() << " |" << endl;
 	
 	
 	//cout << "Something is " << newsomething.getSum();
