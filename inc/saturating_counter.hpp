@@ -33,7 +33,7 @@ public:
 	void reset(counter_status initial);
 	bool isTaken();
 	bool isNotTaken();
-	bool getCounterStatus();
+	counter_status getCounterStatus();
 	std::string getCounterStatusString();
 private:
     counter_status _status;

@@ -108,7 +108,7 @@ bool saturating_counter::isNotTaken()
 	}
 }
 
-bool saturating_counter::getCounterStatus()
+counter_status saturating_counter::getCounterStatus()
 {
 	return this->_status;
 }
@@ -120,17 +120,17 @@ std::string saturating_counter::getCounterStatusString()
 	{
 		case strong_taken :
 		{
-			output = "Strong Taken";
+			output = "  Strong Taken  ";
 			break;
 		}
 		case weak_taken :
 		{
-			output = "Weak Taken";
+			output = "   Weak Taken   ";
 			break;
 		}
 		case weak_nottaken :
 		{
-			output = "Weak NOT Taken";
+			output = " Weak NOT Taken ";
 			break;
 		}
 		case strong_nottaken :
