@@ -147,9 +147,9 @@ void branch_history_table_entry::reset(unsigned int initAddress, counter_status 
 	this->_address = initAddress;
 }
 
-counter_status branch_history_table_entry::getCounterStatus()
+saturating_counter branch_history_table_entry::getCounter()
 {
-	return this->_counter.getCounterStatus();
+	return this->_counter;
 }
 
 unsigned int branch_history_table_entry::getCurrentAddress()

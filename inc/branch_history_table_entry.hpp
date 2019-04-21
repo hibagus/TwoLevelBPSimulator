@@ -36,7 +36,7 @@ public:
 	void reset(unsigned int initAddress);
 	void reset(unsigned int initAddress, counter_status initialState);
 	
-	counter_status getCounterStatus();
+	saturating_counter getCounter();
 	unsigned int getCurrentAddress();
 	std::string getEntryStringDecimal();
 	std::string getEntryStringHex();
