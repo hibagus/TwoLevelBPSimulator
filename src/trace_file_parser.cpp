@@ -14,6 +14,7 @@ http://www.bagus.my.id
 #include<fstream>
 #include<sstream>
 #include<iostream>
+#include <iomanip>
 
 trace_file_parser::trace_file_parser(std::string filename)
 : _currenttraceentry(0,0)
@@ -61,8 +62,12 @@ std::string trace_file_parser::getCurrentFileName()
 std::string trace_file_parser::getCurrentTraceEntryString()
 {
 	std::stringstream ss;
-	ss << this->_currenttraceentry.getBranchAddr() << " " << this->_currenttraceentry.getBranchOutcome();
-	return ss.str();
+	ss << std::setw(10) << std::setfill('0') << std::dec << this->_currenttraceentry.getBranchAddr();
+	
+	std::stringstream result;
+	result << ss.str() << " | " << this->_currenttraceentry.getBranchOutcome();
+	
+	return result.str();
 }
 
 unsigned long long trace_file_parser::getCurrentLineNumber()
