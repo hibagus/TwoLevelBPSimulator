@@ -109,11 +109,11 @@ branch_history_register branch_history_register_table::getEntrybyIndex(unsigned 
 }
 unsigned int branch_history_register_table::getNumofEntry()
 {
-	return _numofEntry;
+	return this->_numofEntry;
 }
 unsigned int branch_history_register_table::getnumofEntryinLogTwo()
 {
-	return _numofEntryinLogTwo;
+	return this->_numofEntryinLogTwo;
 }
 
 void branch_history_register_table::printTableBinary()

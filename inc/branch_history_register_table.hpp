@@ -14,6 +14,7 @@ http://www.bagus.my.id
 #include <string>
 #include "branch_history_register.hpp"
 
+
 class branch_history_register_table
 {
 public:
