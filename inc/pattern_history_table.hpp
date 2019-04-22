@@ -17,6 +17,7 @@ http://www.bagus.my.id
 class pattern_history_table
 {
 public:
+    pattern_history_table();
     pattern_history_table(unsigned int numofEntryinLogTwo);
     pattern_history_table(unsigned int numofEntryinLogTwo, counter_status counterInitial);
 	

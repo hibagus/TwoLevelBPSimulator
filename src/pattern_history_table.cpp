@@ -17,6 +17,12 @@ http://www.bagus.my.id
 #include <iomanip>
 #include <iostream>
 
+pattern_history_table::pattern_history_table()
+{
+	this->_numofEntryinLogTwo = 0;
+	this->_numofEntry = 1;
+	this->_pht = new saturating_counter[this->_numofEntry];
+}
 
 pattern_history_table::pattern_history_table(unsigned int numofEntryinLogTwo)
 {
