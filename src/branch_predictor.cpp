@@ -4,6 +4,8 @@
 #include "branch_history_table_entry.hpp"
 #include "branch_history_register.hpp"
 #include "trace_file_parser.hpp"
+#include "branch_history_register_table.hpp"
+
 using namespace std;
 
 int main() 
@@ -223,6 +225,26 @@ int main()
 	cout << endl;
 	cout<< "Current Status: " << bhttest.isTakenAutoReplace(16384) << endl;
 	bhttest.printTableDecimal();
+	cout << endl;
+	
+	
+	branch_history_register_table bhsrttest(4,8);
+	bhsrttest.printTableBinary();
+	cout << endl;
+	bhsrttest.updateTaken(0);
+	bhsrttest.updateTaken(0);
+	bhsrttest.updateTaken(0);
+	bhsrttest.updateTaken(1);
+	bhsrttest.updateTaken(0);
+	bhsrttest.updateTaken(0);
+	bhsrttest.updateTaken(0);
+	bhsrttest.updateTaken(2);
+	bhsrttest.printTableBinary();
+	cout << endl;
+	bhsrttest.updateNotTaken(0);
+	bhsrttest.updateNotTaken(0);
+	bhsrttest.updateNotTaken(0);
+	bhsrttest.printTableBinary();
 	cout << endl;
 	
 	//cout << "Something is " << newsomething.getSum();
