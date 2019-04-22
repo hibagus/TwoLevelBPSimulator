@@ -16,17 +16,17 @@ http://www.bagus.my.id
 #include <iomanip>
 #include <iostream>
 
-branch_history_table::branch_history_table(unsigned int numofEntryinPowerofTwo)
+branch_history_table::branch_history_table(unsigned int numofEntryinLogTwo)
 {
-	this->_numofEntryinPowerofTwo = numofEntryinPowerofTwo;
-	this->_numofEntry = pow(2,numofEntryinPowerofTwo);
+	this->_numofEntryinLogTwo = numofEntryinLogTwo;
+	this->_numofEntry = pow(2,numofEntryinLogTwo);
 	this->_bht = new branch_history_table_entry[this->_numofEntry];
 }
 
-branch_history_table::branch_history_table(unsigned int numofEntryinPowerofTwo, counter_status initState)
+branch_history_table::branch_history_table(unsigned int numofEntryinLogTwo, counter_status initState)
 {
-	this->_numofEntryinPowerofTwo = numofEntryinPowerofTwo;
-	this->_numofEntry = pow(2,numofEntryinPowerofTwo);
+	this->_numofEntryinLogTwo = numofEntryinLogTwo;
+	this->_numofEntry = pow(2,numofEntryinLogTwo);
 	this->_bht = new branch_history_table_entry[this->_numofEntry];	
 	for(unsigned int i=0; i<this->_numofEntry;i++)
 	{
@@ -34,10 +34,10 @@ branch_history_table::branch_history_table(unsigned int numofEntryinPowerofTwo, 
 	}
 }
 
-branch_history_table::branch_history_table(unsigned int numofEntryinPowerofTwo, unsigned int initAddress)
+branch_history_table::branch_history_table(unsigned int numofEntryinLogTwo, unsigned int initAddress)
 {
-	this->_numofEntryinPowerofTwo = numofEntryinPowerofTwo;
-	this->_numofEntry = pow(2,numofEntryinPowerofTwo);
+	this->_numofEntryinLogTwo = numofEntryinLogTwo;
+	this->_numofEntry = pow(2,numofEntryinLogTwo);
 	this->_bht = new branch_history_table_entry[this->_numofEntry];
 	for(unsigned int i=0; i<this->_numofEntry;i++)
 	{
@@ -45,10 +45,10 @@ branch_history_table::branch_history_table(unsigned int numofEntryinPowerofTwo, 
 	}
 }
 
-branch_history_table::branch_history_table(unsigned int numofEntryinPowerofTwo, unsigned int initAddress, counter_status initState)
+branch_history_table::branch_history_table(unsigned int numofEntryinLogTwo, unsigned int initAddress, counter_status initState)
 {
-	this->_numofEntryinPowerofTwo = numofEntryinPowerofTwo;
-	this->_numofEntry = pow(2,numofEntryinPowerofTwo);
+	this->_numofEntryinLogTwo = numofEntryinLogTwo;
+	this->_numofEntry = pow(2,numofEntryinLogTwo);
 	this->_bht = new branch_history_table_entry[this->_numofEntry];
 	for(unsigned int i=0; i<this->_numofEntry;i++)
 	{
@@ -104,19 +104,19 @@ bool branch_history_table::isNotTakenAutoReplace(counter_status initState, unsig
 	return this->_bht[index].isNotTakenAutoReplace(initState,address);
 }
 
-void branch_history_table::reset(unsigned int numofEntryinPowerofTwo)
+void branch_history_table::reset(unsigned int numofEntryinLogTwo)
 {
 	delete this->_bht;
-	this->_numofEntryinPowerofTwo = numofEntryinPowerofTwo;
-	this->_numofEntry = pow(2,numofEntryinPowerofTwo);
+	this->_numofEntryinLogTwo = numofEntryinLogTwo;
+	this->_numofEntry = pow(2,numofEntryinLogTwo);
 	this->_bht = new branch_history_table_entry[this->_numofEntry];
 }
 
-void branch_history_table::reset(unsigned int numofEntryinPowerofTwo, counter_status initState)
+void branch_history_table::reset(unsigned int numofEntryinLogTwo, counter_status initState)
 {
 	delete this->_bht;
-	this->_numofEntryinPowerofTwo = numofEntryinPowerofTwo;
-	this->_numofEntry = pow(2,numofEntryinPowerofTwo);
+	this->_numofEntryinLogTwo = numofEntryinLogTwo;
+	this->_numofEntry = pow(2,numofEntryinLogTwo);
 	this->_bht = new branch_history_table_entry[this->_numofEntry];
 	for(unsigned int i=0; i<this->_numofEntry;i++)
 	{
@@ -124,11 +124,11 @@ void branch_history_table::reset(unsigned int numofEntryinPowerofTwo, counter_st
 	}
 }
 
-void branch_history_table::reset(unsigned int numofEntryinPowerofTwo, unsigned int initAddress)
+void branch_history_table::reset(unsigned int numofEntryinLogTwo, unsigned int initAddress)
 {
 	delete this->_bht;
-	this->_numofEntryinPowerofTwo = numofEntryinPowerofTwo;
-	this->_numofEntry = pow(2,numofEntryinPowerofTwo);
+	this->_numofEntryinLogTwo = numofEntryinLogTwo;
+	this->_numofEntry = pow(2,numofEntryinLogTwo);
 	this->_bht = new branch_history_table_entry[this->_numofEntry];
 	for(unsigned int i=0; i<this->_numofEntry;i++)
 	{
@@ -136,11 +136,11 @@ void branch_history_table::reset(unsigned int numofEntryinPowerofTwo, unsigned i
 	}
 }
 
-void branch_history_table::reset(unsigned int numofEntryinPowerofTwo, unsigned int initAddress, counter_status initState)
+void branch_history_table::reset(unsigned int numofEntryinLogTwo, unsigned int initAddress, counter_status initState)
 {
 	delete this->_bht;
-	this->_numofEntryinPowerofTwo = numofEntryinPowerofTwo;
-	this->_numofEntry = pow(2,numofEntryinPowerofTwo);
+	this->_numofEntryinLogTwo = numofEntryinLogTwo;
+	this->_numofEntry = pow(2,numofEntryinLogTwo);
 	this->_bht = new branch_history_table_entry[this->_numofEntry];
 	for(unsigned int i=0; i<this->_numofEntry;i++)
 	{
@@ -164,9 +164,9 @@ unsigned int branch_history_table::getNumofEntry()
 	return _numofEntry;
 }
 
-unsigned int branch_history_table::getNumofEntryinPowerofTwo()
+unsigned int branch_history_table::getnumofEntryinLogTwo()
 {
-	return _numofEntryinPowerofTwo;
+	return _numofEntryinLogTwo;
 }
 
 void branch_history_table::printTableDecimal()
@@ -175,7 +175,7 @@ void branch_history_table::printTableDecimal()
 	{
 		std::stringstream stream;
         stream << std::setw(10) << std::setfill('0') << std::dec << i;
-		std::cout << "| " << stream.str() << " | " << this->_bht[i].getEntryStringDecimal() << std::endl;
+		std::cout << "| " << stream.str() << " | " << this->_bht[i].getEntryStringDecimal() << " |" <<std::endl;
 	}
 }
 
@@ -185,13 +185,13 @@ void branch_history_table::printTableHex()
 	{
 		std::stringstream stream;
         stream << std::setw(10) << std::setfill('0') << std::dec << i;
-		std::cout << "| " << stream.str() << " | " << this->_bht[i].getEntryStringHex() << std::endl;
+		std::cout << "| " << stream.str() << " | " << this->_bht[i].getEntryStringHex() << " |"  << std::endl;
 	}
 }
 
 unsigned int branch_history_table::calculateIndex(unsigned int address)
 {
 	unsigned int mask = 0;
-	mask = ~((~mask)<<this->_numofEntryinPowerofTwo);
+	mask = ~((~mask)<<this->_numofEntryinLogTwo);
 	return address & mask;
 }

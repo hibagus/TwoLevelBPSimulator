@@ -17,38 +17,37 @@ http://www.bagus.my.id
 class branch_history_table
 {
 public:
-    branch_history_table(unsigned int numofEntryinPowerofTwo);
-	branch_history_table(unsigned int numofEntryinPowerofTwo, counter_status initState);
-	branch_history_table(unsigned int numofEntryinPowerofTwo, unsigned int initAddress);
-    branch_history_table(unsigned int numofEntryinPowerofTwo, unsigned int initAddress, counter_status initState);
-	
-	void updateTaken(unsigned int address);
-	void updateNotTaken(unsigned int address);
-	
-	bool isTaken(unsigned int address);
-	bool isNotTaken(unsigned int address);
-	bool isTakenAutoReplace(unsigned int address);
-	bool isTakenAutoReplace(counter_status initState, unsigned int address);
-	bool isNotTakenAutoReplace(unsigned int address);	
-	bool isNotTakenAutoReplace(counter_status initState, unsigned int address);
-
-	void reset(unsigned int numofEntryinPowerofTwo);
-	void reset(unsigned int numofEntryinPowerofTwo, counter_status initState);
-	void reset(unsigned int numofEntryinPowerofTwo, unsigned int initAddress);
-	void reset(unsigned int numofEntryinPowerofTwo, unsigned int initAddress, counter_status initState);
-	
-	branch_history_table_entry getEntrybyAddress(unsigned int address);
-	branch_history_table_entry getEntrybyIndex(unsigned int index);
-	unsigned int getNumofEntry();
-	unsigned int getNumofEntryinPowerofTwo();
-	void printTableDecimal();
-	void printTableHex();
-
+    branch_history_table(unsigned int numofEntryinLogTwo);
+    branch_history_table(unsigned int numofEntryinLogTwo, counter_status initState);
+    branch_history_table(unsigned int numofEntryinLogTwo, unsigned int initAddress);
+    branch_history_table(unsigned int numofEntryinLogTwo, unsigned int initAddress, counter_status initState);
+    
+    void updateTaken(unsigned int address);
+    void updateNotTaken(unsigned int address);
+    
+    bool isTaken(unsigned int address);
+    bool isNotTaken(unsigned int address);
+    bool isTakenAutoReplace(unsigned int address);
+    bool isTakenAutoReplace(counter_status initState, unsigned int address);
+    bool isNotTakenAutoReplace(unsigned int address);	
+    bool isNotTakenAutoReplace(counter_status initState, unsigned int address);
+    
+    void reset(unsigned int numofEntryinLogTwo);
+    void reset(unsigned int numofEntryinLogTwo, counter_status initState);
+    void reset(unsigned int numofEntryinLogTwo, unsigned int initAddress);
+    void reset(unsigned int numofEntryinLogTwo, unsigned int initAddress, counter_status initState);
+    
+    branch_history_table_entry getEntrybyAddress(unsigned int address);
+    branch_history_table_entry getEntrybyIndex(unsigned int index);
+    unsigned int getNumofEntry();
+    unsigned int getnumofEntryinLogTwo();
+    void printTableDecimal();
+    void printTableHex();
 	
 private:
-    unsigned int               _numofEntryinPowerofTwo;
-	unsigned int               _numofEntry;
-	branch_history_table_entry* _bht;
-	unsigned int calculateIndex(unsigned int address);
+    unsigned int               _numofEntryinLogTwo;
+    unsigned int               _numofEntry;
+    branch_history_table_entry* _bht;
+    unsigned int calculateIndex(unsigned int address);
 };
 #endif
