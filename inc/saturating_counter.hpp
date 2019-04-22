@@ -21,20 +21,19 @@ enum counter_status
 	strong_nottaken,
 };
 
-
 class saturating_counter
 {
 public:
     saturating_counter();
-	saturating_counter(counter_status initial);
+    saturating_counter(counter_status initial);
     void updateTaken();
-	void updateNotTaken();
-	void reset();
-	void reset(counter_status initial);
-	bool isTaken();
-	bool isNotTaken();
-	counter_status getCounterStatus();
-	std::string getCounterStatusString();
+    void updateNotTaken();
+    void reset();
+    void reset(counter_status initial);
+    bool isTaken();
+    bool isNotTaken();
+    counter_status getCounterStatus();
+    std::string getCounterStatusString();
 private:
     counter_status _status;
 };

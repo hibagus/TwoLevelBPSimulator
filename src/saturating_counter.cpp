@@ -120,22 +120,22 @@ std::string saturating_counter::getCounterStatusString()
 	{
 		case strong_taken :
 		{
-			output = "  Strong Taken  ";
+			output = "T";
 			break;
 		}
 		case weak_taken :
 		{
-			output = "   Weak Taken   ";
+			output = "t";
 			break;
 		}
 		case weak_nottaken :
 		{
-			output = " Weak NOT Taken ";
+			output = "n";
 			break;
 		}
 		case strong_nottaken :
 		{
-			output = "Strong NOT Taken";
+			output = "N";
 			break;
 		}
 	}
