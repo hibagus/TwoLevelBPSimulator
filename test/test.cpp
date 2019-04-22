@@ -16,6 +16,7 @@ http://www.bagus.my.id
 #include "trace_file_parser.hpp"
 #include "branch_history_register_table.hpp"
 #include "pattern_history_table.hpp"
+#include "two_level_predictor.hpp"
 
 using namespace std;
 
@@ -273,6 +274,95 @@ int main()
 	phttest.printTable();
 	cout << endl;
 	
+	cout <<"GAg BP Test" <<endl;
+	two_level_predictor BPred_GAg(0,0,4,0);
+	//BPred_GAg.printBranchPredictorContents();
+	BPred_GAg.updateTaken(2);
+	BPred_GAg.updateTaken(3);
+	BPred_GAg.updateTaken(130);
+	BPred_GAg.updateTaken(258);
+	BPred_GAg.updateTaken(514);
+	BPred_GAg.printBranchPredictorContents();
+	
+	cout <<"GAs BP Test" <<endl;
+	two_level_predictor BPred_GAs(0,2,4,1);
+	//BPred_GAs.printBranchPredictorContents();
+	BPred_GAs.updateTaken(2);
+	BPred_GAs.updateTaken(3);
+	BPred_GAs.updateTaken(130);
+	BPred_GAs.updateTaken(258);
+    BPred_GAs.updateTaken(514);
+	BPred_GAs.printBranchPredictorContents();
+	
+	cout <<"GAp BP Test" <<endl;
+	two_level_predictor BPred_GAp(0,2,4,0);
+	//BPred_GAp.printBranchPredictorContents();
+	BPred_GAp.updateTaken(2);
+	BPred_GAp.updateTaken(3);
+	BPred_GAp.updateTaken(130);
+	BPred_GAp.updateTaken(258);
+	BPred_GAp.updateTaken(514);
+	BPred_GAp.printBranchPredictorContents();
+	
+	cout <<"SAg BP Test" <<endl;
+	two_level_predictor BPred_SAg(2,0,4,1);
+	//BPred_SAg.printBranchPredictorContents();
+	BPred_SAg.updateTaken(2);
+	BPred_SAg.updateTaken(3);
+	BPred_SAg.updateTaken(130);
+	BPred_SAg.updateTaken(258);
+	BPred_SAg.updateTaken(514);
+	BPred_SAg.printBranchPredictorContents();
+	
+	cout <<"SAs BP Test" <<endl;
+	two_level_predictor BPred_SAs(2,1,4,1);
+	//BPred_SAs.printBranchPredictorContents();
+	BPred_SAs.updateTaken(2);
+	BPred_SAs.updateTaken(3);
+	BPred_SAs.updateTaken(130);
+	BPred_SAs.updateTaken(258);
+	BPred_SAs.updateTaken(514);
+	BPred_SAs.printBranchPredictorContents();
+	
+	cout <<"SAp BP Test" <<endl;
+	two_level_predictor BPred_SAp(2,2,4,1);
+	//BPred_SAp.printBranchPredictorContents();
+	BPred_SAp.updateTaken(2);
+	BPred_SAp.updateTaken(3);
+	BPred_SAp.updateTaken(130);
+	BPred_SAp.updateTaken(258);
+	BPred_SAp.updateTaken(514);
+	BPred_SAp.printBranchPredictorContents();
+	
+	cout <<"PAg BP Test" <<endl;
+	two_level_predictor BPred_PAg(2,0,4,0);
+	//BPred_PAg.printBranchPredictorContents();
+	BPred_PAg.updateTaken(2);
+	BPred_PAg.updateTaken(3);
+	BPred_PAg.updateTaken(130);
+	BPred_PAg.updateTaken(258);
+	BPred_PAg.updateTaken(514);
+	BPred_PAg.printBranchPredictorContents();
+	
+	cout <<"PAs BP Test" <<endl;
+	two_level_predictor BPred_PAs(2,1,4,0);
+	//BPred_PAs.printBranchPredictorContents();
+	BPred_PAs.updateTaken(2);
+	BPred_PAs.updateTaken(3);
+	BPred_PAs.updateTaken(130);
+	BPred_PAs.updateTaken(258);
+	BPred_PAs.updateTaken(514);
+	BPred_PAs.printBranchPredictorContents();
+	
+	cout <<"PAp BP Test" <<endl;
+	two_level_predictor BPred_PAp(2,2,4,0);
+	//BPred_PAp.printBranchPredictorContents();
+	BPred_PAp.updateTaken(4);
+	BPred_PAp.updateTaken(5);
+	BPred_PAp.updateTaken(132);
+	BPred_PAp.updateTaken(260);
+	BPred_PAp.updateTaken(516);
+	BPred_PAp.printBranchPredictorContents();
 	
 	//cout << "Something is " << newsomething.getSum();
     return 0;
