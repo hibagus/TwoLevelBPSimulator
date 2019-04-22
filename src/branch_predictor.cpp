@@ -5,6 +5,7 @@
 #include "branch_history_register.hpp"
 #include "trace_file_parser.hpp"
 #include "branch_history_register_table.hpp"
+#include "pattern_history_table.hpp"
 
 using namespace std;
 
@@ -246,6 +247,22 @@ int main()
 	bhsrttest.updateNotTaken(0);
 	bhsrttest.printTableBinary();
 	cout << endl;
+	
+	pattern_history_table phttest(4);
+	phttest.printTable();
+	cout << endl;
+	phttest.updateTaken(0);
+	phttest.updateTaken(0);
+	phttest.updateTaken(1);
+	phttest.updateTaken(2);
+	phttest.updateTaken(2);
+	phttest.printTable();
+	cout << endl;
+	phttest.updateNotTaken(0);
+	phttest.updateNotTaken(0);
+	phttest.printTable();
+	cout << endl;
+	
 	
 	//cout << "Something is " << newsomething.getSum();
     return 0;
