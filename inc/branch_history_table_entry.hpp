@@ -17,31 +17,31 @@ class branch_history_table_entry
 {
 public:
     branch_history_table_entry();
-	branch_history_table_entry(counter_status initState);
-	branch_history_table_entry(unsigned int initAddress);
-	branch_history_table_entry(unsigned int initAddress, counter_status initialState);
+    branch_history_table_entry(counter_status initState);
+    branch_history_table_entry(unsigned int initAddress);
+    branch_history_table_entry(unsigned int initAddress, counter_status initialState);
+       
+    void updateTaken();
+    void updateNotTaken();
     
-	void updateTaken();
-	void updateNotTaken();
-	
-	bool isTaken(unsigned int address);
-	bool isNotTaken(unsigned int address);
-	bool isTakenAutoReplace(unsigned int address);
-	bool isTakenAutoReplace(counter_status initState, unsigned int address);
-	bool isNotTakenAutoReplace(unsigned int address);	
-	bool isNotTakenAutoReplace(counter_status initState, unsigned int address);
-
-	void reset();
-	void reset(counter_status initState);
-	void reset(unsigned int initAddress);
-	void reset(unsigned int initAddress, counter_status initialState);
-	
-	saturating_counter getCounter();
-	unsigned int getCurrentAddress();
-	std::string getEntryStringDecimal();
-	std::string getEntryStringHex();
+    bool isTaken(unsigned int address);
+    bool isNotTaken(unsigned int address);
+    bool isTakenAutoReplace(unsigned int address);
+    bool isTakenAutoReplace(counter_status initState, unsigned int address);
+    bool isNotTakenAutoReplace(unsigned int address);	
+    bool isNotTakenAutoReplace(counter_status initState, unsigned int address);
+    
+    void reset();
+    void reset(counter_status initState);
+    void reset(unsigned int initAddress);
+    void reset(unsigned int initAddress, counter_status initialState);
+    
+    saturating_counter getCounter();
+    unsigned int getCurrentAddress();
+    std::string getEntryStringDecimal();
+    std::string getEntryStringHex();
 private:
-	unsigned int       _address;
-	saturating_counter _counter;
+    unsigned int       _address;
+    saturating_counter _counter;
 };
 #endif
