@@ -76,17 +76,47 @@ void branch_history_register::updateNotTaken()
 void branch_history_register::reset()
 {
 	this->_value = 0;
+	this->_length= 1;
 }
 
-void branch_history_register::reset(unsigned int initial)
+void branch_history_register::reset(unsigned int length)
+{
+	this->_value = 0;
+	if(length==0)
+	{
+		this->_length= 1;
+	}
+	else
+	{
+		this->_length= length;
+	}
+}
+
+void branch_history_register::reset(unsigned int initial, unsigned int length)
 {
 	this->_value = initial;
+	if(length==0)
+	{
+		this->_length= 1;
+	}
+	else
+	{
+		this->_length= length;
+	}
 	this->_truncateMSB();
 }
 
-void branch_history_register::reset(unsigned long long initial)
+void branch_history_register::reset(unsigned long long initial, unsigned int length)
 {
 	this->_value = initial;
+	if(length==0)
+	{
+		this->_length= 1;
+	}
+	else
+	{
+		this->_length= length;
+	}
 	this->_truncateMSB();
 }
 

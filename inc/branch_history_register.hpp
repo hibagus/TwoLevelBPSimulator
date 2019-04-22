@@ -18,20 +18,21 @@ class branch_history_register
 public:
     branch_history_register();
     branch_history_register(unsigned int length);
-	branch_history_register(unsigned int initial, unsigned int length);
-	branch_history_register(unsigned long long initial, unsigned int length);
+    branch_history_register(unsigned int initial, unsigned int length);
+    branch_history_register(unsigned long long initial, unsigned int length);
     void updateTaken();
-	void updateNotTaken();
-	void reset();
-	void reset(unsigned int initial);
-	void reset(unsigned long long initial);
-	unsigned long long getLongValue();
-	unsigned int getIntValue();
-	unsigned int getLength();
-	std::string getBinaryString();
+    void updateNotTaken();
+    void reset();
+    void reset(unsigned int length);
+	void reset(unsigned int initial, unsigned int length);
+    void reset(unsigned long long initial, unsigned int length);
+    unsigned long long getLongValue();
+    unsigned int getIntValue();
+    unsigned int getLength();
+    std::string getBinaryString();
 private:
     unsigned long long _value;
-	unsigned int _length;
-	void _truncateMSB();
+    unsigned int _length;
+    void _truncateMSB();
 };
 #endif
