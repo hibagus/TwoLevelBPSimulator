@@ -1,4 +1,4 @@
-TARGET   = branch_predictor
+TARGET   = sim
 SRCDIR   = src
 INCDIR   = inc
 OBJDIR   = obj
