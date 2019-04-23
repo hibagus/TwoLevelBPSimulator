@@ -1,16 +1,12 @@
-# Two Level Branch Predictor Simulator
-EE382N Superscalar Microprocessor Architecture, Spring 2019, Assignment 4
-
-(C) 2019 Bagus Hanindhito (hanindhito[at]bagus[dot]my[dot]id)
+# Two Level Branch Predictor Simulator  
+EE382N Superscalar Microprocessor Architecture, Spring 2019, Assignment 4  
+(C) 2019 Bagus Hanindhito (hanindhito[at]bagus[dot]my[dot]id)  
 
 ## Introduction
-This is the implementation of two-level branch predictor with branch history shift register table and pattern history table based on the papers below.
-
-[1] T. Yeh, Y. Patt, "A comparison of dynamic branch predictors that use two levels of branch history", Proceedings of the 20th Annual International Symposium on Computer Architecture, pp. 257-266, 1993.
-
-[2] T-Y Yeh, Y.N. Patt, "Two-Level Adaptive Branch Prediction", Proceedings of the 24th Annual ACM/IEEE International Symposium and Workshop on Microarchitecture, pp. 51-61, 1991-Nov.
-
-[3] T-Y Yeh, Y.N. Patt, "Alternative Implementations of Two-Level Adaptive Branch Prediction", Proceedings of the 19th International Symposium on Computer Architecture, pp. 124-134, 1992-May.
+This is the implementation of two-level branch predictor with branch history shift register table and pattern history table based on the papers below.  
+[1] T. Yeh, Y. Patt, "A comparison of dynamic branch predictors that use two levels of branch history", Proceedings of the 20th Annual International Symposium on Computer Architecture, pp. 257-266, 1993.  
+[2] T-Y Yeh, Y.N. Patt, "Two-Level Adaptive Branch Prediction", Proceedings of the 24th Annual ACM/IEEE International Symposium and Workshop on Microarchitecture, pp. 51-61, 1991-Nov.  
+[3] T-Y Yeh, Y.N. Patt, "Alternative Implementations of Two-Level Adaptive Branch Prediction", Proceedings of the 19th International Symposium on Computer Architecture, pp. 124-134, 1992-May.  
 
 As an addition, this code can also simulate one-level branch predictor using the branch history table as a comparison to the two-level one. All of the code are implemented in C++11 and are written on Ubuntu on Windows Subsystem Linux with GCC 5.4.0.
 
@@ -32,28 +28,28 @@ If the compilation goes well, you can run the simulator by giving appropriate ar
 ./sim [tracefile] [i] [j] [k] [s]  Two-Level Branch Predictor with custom BHSR size and PHT size.
 ```
 
-The arguments that the simulator needs are explained below.
-tracefile = a compatible plain text tracefile for simulation input.
-r         = log2(number of BHT entry)
-i         = log2(number of BHSR entry)
-j         = log2(number of PHT table)
-k         = BHSR Length
-s         = log2(number of Set)
+The arguments that the simulator needs are explained below.  
+tracefile = a compatible plain text tracefile for simulation input.  
+r         = log2(number of BHT entry)  
+i         = log2(number of BHSR entry)  
+j         = log2(number of PHT table)  
+k         = BHSR Length  
+s         = log2(number of Set)  
 
-For one-level predictor, the r must not be a negative number.
-For two-level predictor, the i, j, k, and s must satisfy the following requirements.
-  XAx  | [log2(# BHSR)] | [log2(# PHT)] | [BHSR Length] | [log2(# Set)]
-  XAx  |        i       |       j       |     k         |      s
-  -----|----------------|---------------|---------------|--------------
-  GAg  |       i=0      |      j=0      |    k>=0       |     s=0
-  GAs  |       i=0      |      j>i      |    k>=0       |    0<s<j
-  GAp  |       i=0      |      j>i      |    k>=0       |     s=0
-  SAg  |       i>0      |      j=0      |    k>=0       |    0<s<i
-  SAs  |       i>0      |     0<j<i     |    k>=0       |    0<s<i
-  SAp  |       i>0      |      j>=i     |    k>=0       |    0<s<i
-  PAg  |       i>0      |      j=0      |    k>=0       |     s=0
-  PAs  |       i>0      |     0<j<i     |    k>=0       |     s=0
-  PAp  |       i>0      |      j>=i     |    k>=0       |     s=0
+For one-level predictor, the r must not be a negative number.  
+For two-level predictor, the i, j, k, and s must satisfy the following requirements.  
+  XAx  | [log2(# BHSR)] | [log2(# PHT)] | [BHSR Length] | [log2(# Set)]  
+  XAx  |        i       |       j       |     k         |      s         
+  -----|----------------|---------------|---------------|--------------  
+  GAg  |       i=0      |      j=0      |    k>=0       |     s=0        
+  GAs  |       i=0      |      j>i      |    k>=0       |    0<s<j       
+  GAp  |       i=0      |      j>i      |    k>=0       |     s=0        
+  SAg  |       i>0      |      j=0      |    k>=0       |    0<s<i       
+  SAs  |       i>0      |     0<j<i     |    k>=0       |    0<s<i       
+  SAp  |       i>0      |      j>=i     |    k>=0       |    0<s<i       
+  PAg  |       i>0      |      j=0      |    k>=0       |     s=0        
+  PAs  |       i>0      |     0<j<i     |    k>=0       |     s=0        
+  PAp  |       i>0      |      j>=i     |    k>=0       |     s=0        
   
 ### Tracefile format
 
