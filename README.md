@@ -66,7 +66,7 @@ This simulator requires simple tracefile in plain text format for simulation. Ea
 ### Test File
 A simple test program to test the functionality of each module of the simulator is given on the test/test.cpp file.
 
-## Basic Module
+## Basic Modules
 The simulator has two basic modules as a building block of the branch predictor. 
 
 ### Branch History Shift Register
@@ -74,7 +74,10 @@ The simulator has two basic modules as a building block of the branch predictor.
 The BHSR is basically an k-bit shift register that stores the history of the outcome from the last k branches. If a new branch is encountered and the outcome is “taken”, then BHSR is shifted to the left and bit “1” is inserted as the new LSB. Likewise, if the new branch’s outcome is “not taken”, the BHSR is shifted to the left and bit “0” is inserted as the new LSB. The excess MSB is automatically truncated, keeping the length of BHSR constant.
 
 ### Two-Bit Saturating Counter
-The Two-Bit Saturating Counter is a two-bit finite state machine that indicates the outcome pattern of the branches. There are four states indexed using two-bit: strong taken (T), weak taken (t), weak not taken (n), and strong not taken (N). 
+![Two-Bit Saturating Counter](img/saturatingcounter.png)  
+The Two-Bit Saturating Counter is a two-bit finite state machine that indicates the outcome pattern of the branches. There are four states indexed using two-bit: strong taken (T), weak taken (t), weak not taken (n), and strong not taken (N). By default in this simulator, the counter is initialized in weak not taken  (n) state.
+
+## Basic Modules
 
 ## Contributing
 If you are interested to use or modify the code for your next project, please cite accordingly. I will be very grateful for any contribution on this code.
