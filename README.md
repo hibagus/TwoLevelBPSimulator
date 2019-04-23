@@ -17,7 +17,7 @@ As an addition, this code can also simulate one-level branch predictor using the
 ## Getting Started
 You can get the code, compile them, and run them very easily by following these steps.
 
-### Cloning the code and compile them.
+### Clone and Compile
 You can follow these commands to clone and compile the code on your local machine.
 ```bash
 git clone https://github.com/hibagus/TwoLevelBPSimulator.git
@@ -25,11 +25,37 @@ cd TwoLevelBPSimulator
 make
 ```
 
-
-
+### Running the Simulator
+If the compilation goes well, you can run the simulator by giving appropriate arguments to the program as follows.
 ```bash
-Give examples
+./sim [tracefile] [r]              One-Level Branch Predictor with configurable number of BHT entrie(s).
+./sim [tracefile] [i] [j] [k] [s]  Two-Level Branch Predictor with custom BHSR size and PHT size.
 ```
+
+The arguments that the simulator needs are explained below.
+tracefile = a compatible plain text tracefile for simulation input.
+r         = log2(number of BHT entry)
+i         = log2(number of BHSR entry)
+j         = log2(number of PHT table)
+k         = BHSR Length
+s         = log2(number of Set)
+
+For one-level predictor, the r must not be a negative number.
+For two-level predictor, the i, j, k, and s must satisfy the following requirements.
+  XAx  | [log2(# BHSR)] | [log2(# PHT)] | [BHSR Length] | [log2(# Set)]
+  XAx  |        i       |       j       |     k         |      s
+  -----|----------------|---------------|---------------|--------------
+  GAg  |       i=0      |      j=0      |    k>=0       |     s=0
+  GAs  |       i=0      |      j>i      |    k>=0       |    0<s<j
+  GAp  |       i=0      |      j>i      |    k>=0       |     s=0
+  SAg  |       i>0      |      j=0      |    k>=0       |    0<s<i
+  SAs  |       i>0      |     0<j<i     |    k>=0       |    0<s<i
+  SAp  |       i>0      |      j>=i     |    k>=0       |    0<s<i
+  PAg  |       i>0      |      j=0      |    k>=0       |     s=0
+  PAs  |       i>0      |     0<j<i     |    k>=0       |     s=0
+  PAp  |       i>0      |      j>=i     |    k>=0       |     s=0
+  
+### Tracefile format
 
 ### Installing
 
