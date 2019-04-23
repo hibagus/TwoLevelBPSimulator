@@ -1,5 +1,6 @@
 # Two Level Branch Predictor Simulator
 EE382N Superscalar Microprocessor Architecture, Spring 2019, Assignment 4
+
 (C) 2019 Bagus Hanindhito (hanindhito[at]bagus[dot]my[dot]id)
 
 ## Introduction
