@@ -29,15 +29,18 @@ If the compilation goes well, you can run the simulator by giving appropriate ar
 ```
 
 The arguments that the simulator needs are explained below.  
+```
 tracefile = a compatible plain text tracefile for simulation input.  
 r         = log2(number of BHT entry)  
 i         = log2(number of BHSR entry)  
 j         = log2(number of PHT table)  
 k         = BHSR Length  
 s         = log2(number of Set)  
+```
 
 For one-level predictor, the r must not be a negative number.  
 For two-level predictor, the i, j, k, and s must satisfy the following requirements.  
+```
   XAx  | [log2(# BHSR)] | [log2(# PHT)] | [BHSR Length] | [log2(# Set)]  
   XAx  |        i       |       j       |     k         |      s         
   -----|----------------|---------------|---------------|--------------  
@@ -50,6 +53,7 @@ For two-level predictor, the i, j, k, and s must satisfy the following requireme
   PAg  |       i>0      |      j=0      |    k>=0       |     s=0        
   PAs  |       i>0      |     0<j<i     |    k>=0       |     s=0        
   PAp  |       i>0      |      j>=i     |    k>=0       |     s=0        
+```
   
 ### Tracefile format
 
