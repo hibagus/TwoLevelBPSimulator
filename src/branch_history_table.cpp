@@ -195,3 +195,8 @@ unsigned int branch_history_table::calculateIndex(unsigned int address)
 	mask = ~((~mask)<<this->_numofEntryinLogTwo);
 	return address & mask;
 }
+
+unsigned int branch_history_table::calculateHardwareCost()
+{
+	return this->_numofEntry * 34;
+}

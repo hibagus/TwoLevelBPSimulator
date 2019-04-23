@@ -37,12 +37,15 @@ public:
     void reset(unsigned int numofEntryinLogTwo, unsigned int initAddress);
     void reset(unsigned int numofEntryinLogTwo, unsigned int initAddress, counter_status initState);
     
+	unsigned int calculateHardwareCost();
+	
     branch_history_table_entry getEntrybyAddress(unsigned int address);
     branch_history_table_entry getEntrybyIndex(unsigned int index);
     unsigned int getNumofEntry();
     unsigned int getnumofEntryinLogTwo();
     void printTableDecimal();
     void printTableHex();
+	
 	
 private:
     unsigned int               _numofEntryinLogTwo;
