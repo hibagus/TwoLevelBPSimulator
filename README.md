@@ -70,6 +70,7 @@ A simple test program to test the functionality of each module of the simulator 
 The simulator has two basic modules as a building block of the branch predictor. 
 
 ### Branch History Shift Register
+![Branch History Shift Register](img/bhsr.png)
 The BHSR is basically an k-bit shift register that stores the history of the outcome from the last k branches. If a new branch is encountered and the outcome is “taken”, then BHSR is shifted to the left and bit “1” is inserted as the new LSB. Likewise, if the new branch’s outcome is “not taken”, the BHSR is shifted to the left and bit “0” is inserted as the new LSB. The excess MSB is automatically truncated, keeping the length of BHSR constant.
 
 ### Two-Bit Saturating Counter
@@ -79,7 +80,9 @@ The Two-Bit Saturating Counter is a two-bit finite state machine that indicates 
 If you are interested to use or modify the code for your next project, please cite accordingly. I will be very grateful for any contribution on this code.
 
 ## Authors
-Bagus Hanindhito
+Bagus Hanindhito  
+Graduate Student at Department of Electrical and Computer Engineering  
+The University of Texas at Austin  
 
 ## License
 The code is licensed under GNU Affero General Public License v3.0. Please see LICENSE file included in the source code.
