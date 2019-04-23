@@ -37,7 +37,6 @@ j         = log2(number of PHT table)
 k         = BHSR Length  
 s         = log2(number of Set)  
 ```
-
 For one-level predictor, the r must not be a negative number.  
 For two-level predictor, the i, j, k, and s must satisfy the following requirements.  
 ```
@@ -56,72 +55,34 @@ For two-level predictor, the i, j, k, and s must satisfy the following requireme
 ```
   
 ### Tracefile format
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
+This simulator requires simple tracefile in plain text format for simulation. Each line of the plain text should hold one entry of the trace. Each entry of the tracefile consists of address of branch instruction which is in the format of decimal and the actual outcome of this branch where 0 denotes the branch is not actually taken and 1 denotes the branch is actually taken. Here is the sample of the tracefile contents.
 ```
-Give the example
+3253361352  1
+3253361380  1
+3253361375  0
+3253361380  1
+3253361375  0
 ```
+### Test File
+A simple test program to test the functionality of each module of the simulator is given on the test/test.cpp file.
 
-And repeat
+## Basic Module
+The simulator has two basic modules as a building block of the branch predictor. 
 
-```
-until finished
-```
+### Branch History Shift Register
+The BHSR is basically an k-bit shift register that stores the history of the outcome from the last k branches. If a new branch is encountered and the outcome is “taken”, then BHSR is shifted to the left and bit “1” is inserted as the new LSB. Likewise, if the new branch’s outcome is “not taken”, the BHSR is shifted to the left and bit “0” is inserted as the new LSB. The excess MSB is automatically truncated, keeping the length of BHSR constant.
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+### Two-Bit Saturating Counter
+The Two-Bit Saturating Counter is a two-bit finite state machine that indicates the outcome pattern of the branches. There are four states indexed using two-bit: strong taken (T), weak taken (t), weak not taken (n), and strong not taken (N). 
 
 ## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+If you are interested to use or modify the code for your next project, please cite accordingly. I will be very grateful for any contribution on this code.
 
 ## Authors
-
-* Bagus Hhttps://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+Bagus Hanindhito
 
 ## License
-
-The code is provided as is without any kind of warranty. If you are interested to use or modify the code, please cite accordingly. I will be very grateful for any contribution on this code.
+The code is licensed under GNU Affero General Public License v3.0. Please see LICENSE file included in the source code.
 
 ## Acknowledgments
 * Lizy K. John (Lecturer)
