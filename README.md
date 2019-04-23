@@ -7,7 +7,9 @@ EE382N Superscalar Microprocessor Architecture, Spring 2019, Assignment 4
 This is the implementation of two-level branch predictor with branch history shift register table and pattern history table based on the papers below.
 
 [1] T. Yeh, Y. Patt, "A comparison of dynamic branch predictors that use two levels of branch history", Proceedings of the 20th Annual International Symposium on Computer Architecture, pp. 257-266, 1993.
+
 [2] T-Y Yeh, Y.N. Patt, "Two-Level Adaptive Branch Prediction", Proceedings of the 24th Annual ACM/IEEE International Symposium and Workshop on Microarchitecture, pp. 51-61, 1991-Nov.
+
 [3] T-Y Yeh, Y.N. Patt, "Alternative Implementations of Two-Level Adaptive Branch Prediction", Proceedings of the 19th International Symposium on Computer Architecture, pp. 124-134, 1992-May.
 
 As an addition, this code can also simulate one-level branch predictor using the branch history table as a comparison to the two-level one. All of the code are implemented in C++11 and are written on Ubuntu on Windows Subsystem Linux with GCC 5.4.0.
@@ -17,7 +19,7 @@ You can get the code, compile them, and run them very easily by following these 
 
 ### Cloning the code and compile them.
 You can follow these commands to clone and compile the code on your local machine.
-```
+```bash
 git clone https://github.com/hibagus/TwoLevelBPSimulator.git
 cd TwoLevelBPSimulator
 make
@@ -25,7 +27,7 @@ make
 
 
 
-```
+```bash
 Give examples
 ```
 
