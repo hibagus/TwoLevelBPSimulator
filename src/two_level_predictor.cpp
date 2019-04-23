@@ -16,7 +16,7 @@ http://www.bagus.my.id
 #include <iostream>
 
 
-bool two_level_predictor::isParameterValid(unsigned int i, unsigned int j, unsigned int k, unsigned int s)
+bool two_level_predictor::isParameterValid(int i, int j, int k, int s)
 {
 	bool verification = false;
 	if(k>=0)
@@ -136,7 +136,7 @@ bool two_level_predictor::isParameterValid(unsigned int i, unsigned int j, unsig
 	}
 	return verification;
 }
-std::string two_level_predictor::getParameterErrorInfo(unsigned int i, unsigned int j, unsigned int k, unsigned int s)
+std::string two_level_predictor::getParameterErrorInfo(int i, int j, int k, int s)
 {
 	std::string errorText;
 	if(k>=0)
@@ -240,7 +240,7 @@ std::string two_level_predictor::getParameterErrorInfo(unsigned int i, unsigned 
 			{
 				// Not valid PAx or SAx
 				// Negative s or s larger than i
-				errorText = "NOT valid PAx or SAx configuration, j must be positive but smaller than i.";
+				errorText = "NOT valid PAx or SAx configuration, s must be positive but smaller than i.";
 			}
 		}
 		else
@@ -256,7 +256,7 @@ std::string two_level_predictor::getParameterErrorInfo(unsigned int i, unsigned 
 	}
 	return errorText;
 }
-std::string two_level_predictor::getPredictorTypeString(unsigned int i, unsigned int j, unsigned int k, unsigned int s)
+std::string two_level_predictor::getPredictorTypeString (int i, int j, int k, int s)
 {
 	std::string predictorType;
 	if(k>=0)

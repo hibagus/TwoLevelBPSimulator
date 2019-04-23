@@ -20,20 +20,20 @@ public:
     pattern_history_table();
     pattern_history_table(unsigned int numofEntryinLogTwo);
     pattern_history_table(unsigned int numofEntryinLogTwo, counter_status counterInitial);
-	
+    
     void updateTaken(unsigned int tableIndex);
     void updateNotTaken(unsigned int tableIndex);
-	
+    
     void reset(unsigned int numofEntryinLogTwo);
     void reset(unsigned int numofEntryinLogTwo, counter_status counterInitial);
     
     saturating_counter getEntrybyIndex(unsigned int tableIndex);
-	unsigned int getNumofEntry();
+    unsigned int getNumofEntry();
     unsigned int getnumofEntryinLogTwo();
     void printTable();
 
 private:   
-	unsigned int               _numofEntryinLogTwo;
+    unsigned int               _numofEntryinLogTwo;
     unsigned int               _numofEntry;
     saturating_counter*        _pht;
 };

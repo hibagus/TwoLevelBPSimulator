@@ -198,5 +198,5 @@ unsigned int branch_history_table::calculateIndex(unsigned int address)
 
 unsigned int branch_history_table::calculateHardwareCost()
 {
-	return this->_numofEntry * 34;
+	return this->_numofEntry * 2;
 }

@@ -12,6 +12,7 @@ http://www.bagus.my.id
 #include <sstream>
 #include "trace_file_parser.hpp"
 #include "branch_history_table.hpp"
+#include "two_level_predictor.hpp"
 
 using namespace std;
 void printHelp(string exename);
@@ -26,6 +27,9 @@ int main(int argc, char *argv[])
 	unsigned int stats_numofWrongPrediction = 0;
 	
 	// Algorithm
+	cout<< "Hanin Two-Level Branch Predictor Simulator v0.1 (2019 April 01)" << endl;
+	cout<< "(C) 2019 Bagus Hanindhito (hanindhito@bagus.my.id)" << endl;
+	//cout<< endl;
 	if(argc==3)
 	{
 		// One-Level Branch Predictor
@@ -56,9 +60,9 @@ int main(int argc, char *argv[])
 		branch_history_table _bht(_r);
 		cout << "=====================================================" << endl;
 		cout << "One Level Branch Predictor Simulation                " << endl;
-		cout << "Model: Branch History Table with Tag bits            " << endl;
-		cout << "Number of Entry : " << _bht.getNumofEntry() << endl;
-		cout << "Hardware Cost   : " << _bht.calculateHardwareCost() << endl;
+		cout << "Model                                    : BHT       " << endl;
+		cout << "Number of Entry                          : " << _bht.getNumofEntry() << endl;
+		cout << "Hardware Cost (excluding tag fields)     : " << _bht.calculateHardwareCost() << endl;
 		cout << "=====================================================" << endl;
 		
 		while(!tracefile.isTraceFileEnded())
@@ -91,10 +95,10 @@ int main(int argc, char *argv[])
 		// Print Stats
 		double accuracy = (stats_numofCorrectPrediction/(double)stats_numofBranchPredicted) * 100;
 		cout << "Simulation Statistics" << endl;
-		cout << "Number of Predicted Branch   : " << stats_numofBranchPredicted << endl;
-		cout << "Number of Correct Prediction : " << stats_numofCorrectPrediction << endl;
-		cout << "Number of Wrong Prediction   : " << stats_numofWrongPrediction   << endl;
-		cout << "Branch Prediction Accuracy   : " << accuracy << "%" << endl;
+		cout << "Number of Predicted Branch               : " << stats_numofBranchPredicted << endl;
+		cout << "Number of Correct Prediction             : " << stats_numofCorrectPrediction << endl;
+		cout << "Number of Wrong Prediction               : " << stats_numofWrongPrediction   << endl;
+		cout << "Branch Prediction Accuracy               : " << accuracy << "%" << endl;
 		cout << "=====================================================" << endl;
 		
 	}
@@ -131,6 +135,65 @@ int main(int argc, char *argv[])
 			cout << "[ERROR] Invalid s argument!" << endl;
 			return -1;
 		}
+		
+		// check parameter requirements
+		if(!two_level_predictor::isParameterValid(_i, _j, _k, _s))
+		{
+			cout << "[ERROR] " << two_level_predictor::getParameterErrorInfo(_i, _j, _k, _s) << endl;
+			return -1;
+		}
+		
+		
+		//Constructing BP
+		two_level_predictor _tlbp(_i, _j, _k, _s);
+		cout << "=====================================================" << endl;
+		cout << "Two Level Branch Predictor Simulation                " << endl;
+		cout << "Model                                    : " << two_level_predictor::getPredictorTypeString(_i, _j, _k, _s) << endl;
+		cout << "Number of Branch History Shift Registers : " << _tlbp.getNumofBHSREntry()          << endl;
+		cout << "Length of Branch History Shift Registers : " << _tlbp.getLengthofBHSR()            << endl;
+		cout << "Number of Pattern History Tables         : " << _tlbp.getNumofPHT()                << endl;
+		cout << "Number of PHT Entries                    : " << _tlbp.getNumofPHTEntry()           << endl;
+		cout << "Hardware Cost                            : " << _tlbp.calculateHardwareCostinBit() << endl;
+		cout << "=====================================================" << endl;
+		
+		
+		while(!tracefile.isTraceFileEnded())
+		{
+			tracefile.getNextEntry();
+			// get prediction
+			bool prediction = _tlbp.isPredictTaken(tracefile.getCurrentEntry().getBranchAddr());
+			bool outcome    = tracefile.getCurrentEntry().getBranchOutcome();
+			if(prediction==outcome)
+			{
+				stats_numofCorrectPrediction++;
+			}
+			else
+			{
+				stats_numofWrongPrediction++;
+			}					
+			//update predictor
+			if(outcome)
+			{
+				_tlbp.updateTaken(tracefile.getCurrentEntry().getBranchAddr());
+			}
+			else
+			{
+				_tlbp.updateNotTaken(tracefile.getCurrentEntry().getBranchAddr());
+			}
+			
+			stats_numofBranchPredicted++;
+		}
+		
+		// Print Stats
+		double accuracy = (stats_numofCorrectPrediction/(double)stats_numofBranchPredicted) * 100;
+		cout << "Simulation Statistics" << endl;
+		cout << "Number of Predicted Branch               : " << stats_numofBranchPredicted << endl;
+		cout << "Number of Correct Prediction             : " << stats_numofCorrectPrediction << endl;
+		cout << "Number of Wrong Prediction               : " << stats_numofWrongPrediction   << endl;
+		cout << "Branch Prediction Accuracy               : " << accuracy << "%" << endl;
+		cout << "=====================================================" << endl;
+		
+		
 	}
 	else
 	{
@@ -143,8 +206,6 @@ int main(int argc, char *argv[])
 
 void printHelp(string exename)
 {
-	cout<< "Hanin Two-Level Branch Predictor Simulator v0.1 (2019 April 01)" << endl;
-	cout<< endl;
 	cout<< "usage:" << exename << " [tracefile] [r]              One-Level Branch Predictor with configurable number of BHT entrie(s)." << endl;
 	cout<< "   or:" << exename << " [tracefile] [i] [j] [k] [s]  Two-Level Branch Predictor with custom BHSR size and PHT size." << endl;
 	cout<< endl;
