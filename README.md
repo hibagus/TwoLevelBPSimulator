@@ -119,7 +119,6 @@ There are only four parameters that the simulator accepts to infer the configura
 
 ### Configuration Structures
 Here is the structure of each possible configuration for the two level branch predictor.
-
 #### GAg
 ![GAg Two-Level Branch Predictor](img/GAg.png) 
 #### GAs
@@ -140,6 +139,25 @@ Here is the structure of each possible configuration for the two level branch pr
 ![PAp Two-Level Branch Predictor](img/PAp.png) 
 
 ### Indexing Schemes
+Finally, I has derive how the simulator uses address bits to index the entry of branch history shift register table, the pattern history tables, and the entry of pattern history tables based on each configuration.
+#### GAg
+![GAg Indexing Scheme](img/GAg-Addressing-Scheme.png) 
+#### GAs
+![GAs Indexing Scheme](img/GAs-Addressing-Scheme.png) 
+#### GAp
+![GAp Indexing Scheme](img/GAp-Addressing-Scheme.png) 
+#### SAg
+![SAg Indexing Scheme](img/SAg-Addressing-Scheme.png) 
+#### SAs
+![SAs Indexing Scheme](img/SAs-Addressing-Scheme.png) 
+#### SAp
+![SAp Indexing Scheme](img/SAp-Addressing-Scheme.png) 
+#### PAg
+![PAg Indexing Scheme](img/PAg-Addressing-Scheme.png) 
+#### PAs
+![PAs Indexing Scheme](img/PAs-Addressing-Scheme.png) 
+#### PAp
+![PAp Indexing Scheme](img/PAp-Addressing-Scheme.png) 
 
 ## Contributing
 If you are interested to use or modify the code for your next project, please cite accordingly. I will be very grateful for any contribution on this code.
