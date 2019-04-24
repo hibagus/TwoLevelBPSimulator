@@ -103,7 +103,6 @@ There are nine possible configurations for the two-level branch predictor as fol
 | Kept per Address	            | Kept per Address	             |  PAp
 
 |   First Level    |   Second Level    |     Name      |
-| (Branch History) | (Pattern History) |               |
 | ---------------- | ---------------   | ------------- |
 |   Content Cell   |   Content Cell    | Content Cell  |
 |   Content Cell   |   Content Cell    | Content Cell  |
