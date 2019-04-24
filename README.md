@@ -101,6 +101,10 @@ There are nine possible configurations for the two-level branch predictor as fol
 | Kept per Address	            | Kept per Set	                 |  PAs
 | Kept per Address	            | Kept per Address	             |  PAp
 
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
 
 ### Infering Configuration from Arguments
 
