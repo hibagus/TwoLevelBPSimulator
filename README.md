@@ -78,8 +78,35 @@ The BHSR is basically an k-bit shift register that stores the history of the out
 The Two-Bit Saturating Counter is a two-bit finite state machine that indicates the outcome pattern of the branches. There are four states indexed using two-bit: strong taken (T), weak taken (t), weak not taken (n), and strong not taken (N). By default in this simulator, the counter is initialized in weak not taken  (n) state.
 
 ## One-Level Branch Predictor
-This predictor consists of a branch history table indexed using the program counter address. The number of entries inside the branch history is configurable. Each entry has a tag field that stores the address of branch instruction and a 2-bit saturating counter initialized as weakly not taken. If there is an aliasing (i.e., different address pointing to the same entry), the old entry will be replaced by the new one and the counter is initialized as weakly not taken.
+![Branch History Shift Register](img/OneLevelBranchPredictor.png) 
+This predictor consists of a branch history table indexed using the program counter address. The number of entries inside the branch history is configurable. Each entry has a tag field that stores the address of branch instruction and a 2-bit saturating counter initialized as weakly not taken. If there is an aliasing (i.e., different address pointing to the same entry), the old entry will be replaced by the new one and the counter is initialized as weakly not taken. You can run the simulation using this one-level branch predictor by specifying the number of entries inside the BHT as an argument to the simulator.
 
+## Two-Level Branch Predictor
+Then, here we go with two-level branch predictor. It uses branch history shift register table as its first level of branch predictor and pattern history tables as its second level of branch predictor.
+
+
+As the paper suggests, there are nine possible configurations for this type of branch predictor. The assignment only gives me four variable (as arguments for simulator) to tell the simulator which branch predictor configuration should it make. Therefore, by specifying those four arguments, the simulator will try to infer the configuration of the two-level branch predictor we want to simulate. The process of infering configuration of the branch predictor may be different if we use five arguments instead of only four. 
+
+### Possible Configurations
+There are nine possible configurations for the two-level branch predictor as follows.  
+| First Level (Branch History)	| Second Level (Pattern History) |	Name
+| ----------------------------- | ------------------------------ | ------
+| Kept Globally	                | Kept Globally	                 |  GAg
+| Kept Globally	                | Kept per Set	                 |  GAs
+| Kept Globally	                | Kept per Address	             |  GAp
+| Kept per Set	                | Kept Globally	                 |  SAg
+| Kept per Set	                | Kept per Set	                 |  SAs
+| Kept per Set	                | Kept per Address	             |  SAp
+| Kept per Address	            | Kept Globally	                 |  PAg
+| Kept per Address	            | Kept per Set	                 |  PAs
+| Kept per Address	            | Kept per Address	             |  PAp
+
+
+### Infering Configuration from Arguments
+
+### Configuration Structures
+
+### Indexing Schemes
 
 ## Contributing
 If you are interested to use or modify the code for your next project, please cite accordingly. I will be very grateful for any contribution on this code.
