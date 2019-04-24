@@ -78,7 +78,7 @@ The BHSR is basically an k-bit shift register that stores the history of the out
 The Two-Bit Saturating Counter is a two-bit finite state machine that indicates the outcome pattern of the branches. There are four states indexed using two-bit: strong taken (T), weak taken (t), weak not taken (n), and strong not taken (N). By default in this simulator, the counter is initialized in weak not taken  (n) state.
 
 ## One-Level Branch Predictor
-![Branch History Shift Register](img/OneLevelBranchPredictor.png) 
+![One-Level Branch Predictor](img/OneLevelBranchPredictor.png) 
 This predictor consists of a branch history table indexed using the program counter address. The number of entries inside the branch history is configurable. Each entry has a tag field that stores the address of branch instruction and a 2-bit saturating counter initialized as weakly not taken. If there is an aliasing (i.e., different address pointing to the same entry), the old entry will be replaced by the new one and the counter is initialized as weakly not taken. You can run the simulation using this one-level branch predictor by specifying the number of entries inside the BHT as an argument to the simulator.
 
 ## Two-Level Branch Predictor
@@ -118,6 +118,26 @@ There are only four parameters that the simulator accepts to infer the configura
 | PAp     	            | i>0 |  j>=i| k>=0 |  s=0 
 
 ### Configuration Structures
+Here is the structure of each possible configuration for the two level branch predictor.
+
+#### GAg
+![GAg Two-Level Branch Predictor](img/GAg.png) 
+#### GAs
+![GAs Two-Level Branch Predictor](img/GAs.png) 
+#### GAp
+![GAp Two-Level Branch Predictor](img/GAp.png) 
+#### SAg
+![SAg Two-Level Branch Predictor](img/SAg.png) 
+#### SAs
+![SAs Two-Level Branch Predictor](img/SAs.png) 
+#### SAp
+![SAp Two-Level Branch Predictor](img/SAp.png) 
+#### PAg
+![PAg Two-Level Branch Predictor](img/PAg.png) 
+#### PAs
+![PAs Two-Level Branch Predictor](img/PAs.png) 
+#### PAp
+![PAp Two-Level Branch Predictor](img/PAp.png) 
 
 ### Indexing Schemes
 
