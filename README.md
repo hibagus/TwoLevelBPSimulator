@@ -90,7 +90,7 @@ As the paper suggests, there are nine possible configurations for this type of b
 ### Possible Configurations
 There are nine possible configurations for the two-level branch predictor as follows.  
 
-| First Level (Branch History)	| Second Level (Pattern History) |	Name
+| First Level (Branch History)	| Second Level (Pattern History) |	Configuration Name
 | ----------------------------- | ------------------------------ | ------
 | Kept Globally	                | Kept Globally	                 |  GAg
 | Kept Globally	                | Kept per Set	                 |  GAs
@@ -102,19 +102,20 @@ There are nine possible configurations for the two-level branch predictor as fol
 | Kept per Address	            | Kept per Set	                 |  PAs
 | Kept per Address	            | Kept per Address	             |  PAp
 
-|   First Level    |   Second Level    |     Name      |
-| ---------------- | ---------------   | ------------- |
-|   Content Cell   |   Content Cell    | Content Cell  |
-|   Content Cell   |   Content Cell    | Content Cell  |
-|   Content Cell   |   Content Cell    | Content Cell  |
-|   Content Cell   |   Content Cell    | Content Cell  |
-|   Content Cell   |   Content Cell    | Content Cell  |
-|   Content Cell   |   Content Cell    | Content Cell  |
-|   Content Cell   |   Content Cell    | Content Cell  |
-|   Content Cell   |   Content Cell    | Content Cell  |
-|   Content Cell   |   Content Cell    | Content Cell  |
-
 ### Infering Configuration from Arguments
+There are only four parameters that the simulator accepts to infer the configuration of the two-level branch predictor (i.e., it is required in assignment). Therefore, I derived the requirements of the combination of the arguments to configure the branch predictor as follows. Note that this requirements may change if you add more arguments to determine the configurations into the simulator.
+
+| Configuration Name	|  i  |  j   | k    | s
+| ----------------------| --- | ---  | ---  | --- 
+| GAg                   | i=0 |  j=0 | k>=0 |  s=0 
+| GAs                   | i=0 |  j>i | k>=0 | 0<s<j
+| GAp                   | i=0 |  j>i | k>=0 |  s=0 
+| SAg                   | i>0 |  j=0 | k>=0 | 0<s<i
+| SAs                   | i>0 | 0<j<i| k>=0 | 0<s<i
+| SAp                   | i>0 |  j>=i| k>=0 | 0<s<i
+| PAg     	            | i>0 |  j=0 | k>=0 |  s=0 
+| PAs     	            | i>0 | 0<j<i| k>=0 |  s=0 
+| PAp     	            | i>0 |  j>=i| k>=0 |  s=0 
 
 ### Configuration Structures
 
