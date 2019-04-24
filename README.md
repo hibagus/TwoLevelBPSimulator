@@ -78,14 +78,11 @@ The BHSR is basically an k-bit shift register that stores the history of the out
 The Two-Bit Saturating Counter is a two-bit finite state machine that indicates the outcome pattern of the branches. There are four states indexed using two-bit: strong taken (T), weak taken (t), weak not taken (n), and strong not taken (N). By default in this simulator, the counter is initialized in weak not taken  (n) state.
 
 ## One-Level Branch Predictor
-![One-Level Branch Predictor](img/OneLevelBranchPredictor.png) 
+![One-Level Branch Predictor](img/OneLevelBranchPredictor.png)  
 This predictor consists of a branch history table indexed using the program counter address. The number of entries inside the branch history is configurable. Each entry has a tag field that stores the address of branch instruction and a 2-bit saturating counter initialized as weakly not taken. If there is an aliasing (i.e., different address pointing to the same entry), the old entry will be replaced by the new one and the counter is initialized as weakly not taken. You can run the simulation using this one-level branch predictor by specifying the number of entries inside the BHT as an argument to the simulator.
 
 ## Two-Level Branch Predictor
-Then, here we go with two-level branch predictor. It uses branch history shift register table as its first level of branch predictor and pattern history tables as its second level of branch predictor.
-
-
-As the paper suggests, there are nine possible configurations for this type of branch predictor. The assignment only gives me four variable (as arguments for simulator) to tell the simulator which branch predictor configuration should it make. Therefore, by specifying those four arguments, the simulator will try to infer the configuration of the two-level branch predictor we want to simulate. The process of infering configuration of the branch predictor may be different if we use five arguments instead of only four. 
+Then, here we go with two-level branch predictor. It uses branch history shift register table as its first level of branch predictor and pattern history tables as its second level of branch predictor. As the paper suggests, there are nine possible configurations for this type of branch predictor. The assignment only gives me four variable (as arguments for simulator) to tell the simulator which branch predictor configuration should it make. Therefore, by specifying those four arguments, the simulator will try to infer the configuration of the two-level branch predictor we want to simulate. The process of infering configuration of the branch predictor may be different if we use five arguments instead of only four. 
 
 ### Possible Configurations
 There are nine possible configurations for the two-level branch predictor as follows.  
@@ -119,44 +116,44 @@ There are only four parameters that the simulator accepts to infer the configura
 
 ### Configuration Structures
 Here is the structure of each possible configuration for the two level branch predictor.
-#### GAg
+#### GAg (Global Adaptive Branch Predictor using one global pattern history table)
 ![GAg Two-Level Branch Predictor](img/GAg.png) 
-#### GAs
+#### GAs (Global Adaptive Branch Predictor using per-set pattern history table)
 ![GAs Two-Level Branch Predictor](img/GAs.png) 
-#### GAp
+#### GAp (Global Adaptive Branch Predictor using per-address pattern history table)
 ![GAp Two-Level Branch Predictor](img/GAp.png) 
-#### SAg
+#### SAg (Per-Set Adaptive Branch Predictor using one global pattern history table)
 ![SAg Two-Level Branch Predictor](img/SAg.png) 
-#### SAs
+#### SAs (Per-Set Adaptive Branch Predictor using per-set pattern history table)
 ![SAs Two-Level Branch Predictor](img/SAs.png) 
-#### SAp
+#### SAp (Per-Set Adaptive Branch Predictor using per-address global pattern history table)
 ![SAp Two-Level Branch Predictor](img/SAp.png) 
-#### PAg
+#### PAg (Per-Address Adaptive Branch Predictor using one global pattern history table)
 ![PAg Two-Level Branch Predictor](img/PAg.png) 
-#### PAs
+#### PAs (Per-Address Adaptive Branch Predictor using per-set pattern history table)
 ![PAs Two-Level Branch Predictor](img/PAs.png) 
-#### PAp
+#### PAp (Per-Address Adaptive Branch Predictor using per-address pattern history table)
 ![PAp Two-Level Branch Predictor](img/PAp.png) 
 
 ### Indexing Schemes
 Finally, I has derive how the simulator uses address bits to index the entry of branch history shift register table, the pattern history tables, and the entry of pattern history tables based on each configuration.
-#### GAg
+#### GAg (Global Adaptive Branch Predictor using one global pattern history table)
 ![GAg Indexing Scheme](img/GAg-Addressing-Scheme.png) 
-#### GAs
+#### GAs (Global Adaptive Branch Predictor using per-set pattern history table)
 ![GAs Indexing Scheme](img/GAs-Addressing-Scheme.png) 
-#### GAp
+#### GAp (Global Adaptive Branch Predictor using per-address pattern history table)
 ![GAp Indexing Scheme](img/GAp-Addressing-Scheme.png) 
-#### SAg
+#### SAg (Per-Set Adaptive Branch Predictor using one global pattern history table)
 ![SAg Indexing Scheme](img/SAg-Addressing-Scheme.png) 
-#### SAs
+#### SAs (Per-Set Adaptive Branch Predictor using per-set pattern history table)
 ![SAs Indexing Scheme](img/SAs-Addressing-Scheme.png) 
-#### SAp
+#### SAp (Per-Set Adaptive Branch Predictor using per-address global pattern history table)
 ![SAp Indexing Scheme](img/SAp-Addressing-Scheme.png) 
-#### PAg
+#### PAg (Per-Address Adaptive Branch Predictor using one global pattern history table)
 ![PAg Indexing Scheme](img/PAg-Addressing-Scheme.png) 
-#### PAs
+#### PAs (Per-Address Adaptive Branch Predictor using per-set pattern history table)
 ![PAs Indexing Scheme](img/PAs-Addressing-Scheme.png) 
-#### PAp
+#### PAp (Per-Address Adaptive Branch Predictor using per-address pattern history table)
 ![PAp Indexing Scheme](img/PAp-Addressing-Scheme.png) 
 
 ## Contributing
