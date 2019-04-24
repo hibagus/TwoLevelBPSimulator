@@ -77,7 +77,9 @@ The BHSR is basically an k-bit shift register that stores the history of the out
 ![Two-Bit Saturating Counter](img/saturatingcounter.png)  
 The Two-Bit Saturating Counter is a two-bit finite state machine that indicates the outcome pattern of the branches. There are four states indexed using two-bit: strong taken (T), weak taken (t), weak not taken (n), and strong not taken (N). By default in this simulator, the counter is initialized in weak not taken  (n) state.
 
-## Basic Modules
+## One-Level Branch Predictor
+This predictor consists of a branch history table indexed using the program counter address. The number of entries inside the branch history is configurable. Each entry has a tag field that stores the address of branch instruction and a 2-bit saturating counter initialized as weakly not taken. If there is an aliasing (i.e., different address pointing to the same entry), the old entry will be replaced by the new one and the counter is initialized as weakly not taken.
+
 
 ## Contributing
 If you are interested to use or modify the code for your next project, please cite accordingly. I will be very grateful for any contribution on this code.
