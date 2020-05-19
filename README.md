@@ -2,6 +2,8 @@
 EE382N Superscalar Microprocessor Architecture, Spring 2019, Assignment 4  
 (C) 2019 Bagus Hanindhito (hanindhito[at]bagus[dot]my[dot]id)  
 
+[![DOI](https://zenodo.org/badge/181817027.svg)](https://zenodo.org/badge/latestdoi/181817027)
+
 ## Introduction
 This is the implementation of two-level branch predictor with branch history shift register table and pattern history table based on the papers below.  
 [1] T. Yeh, Y. Patt, "A comparison of dynamic branch predictors that use two levels of branch history", Proceedings of the 20th Annual International Symposium on Computer Architecture, pp. 257-266, 1993.  
