@@ -158,8 +158,20 @@ Finally, I has derive how the simulator uses address bits to index the entry of 
 #### PAp (Per-Address Adaptive Branch Predictor using per-address pattern history table)
 ![PAp Indexing Scheme](img/PAp-Addressing-Scheme.png) 
 
-## Contributing
+## Contributing and Citation
 If you are interested to use or modify the code for your next project, please cite accordingly. I will be very grateful for any contribution on this code.
+```
+@misc{bagus_hanindhito_2020_3834733,
+    author       = {Bagus Hanindhito},
+    title        = {{Two Level Branch Predictor Simulator}},
+    month        = May,
+    year         = 2020,
+    doi          = {10.5281/zenodo.3834733},
+    version      = {1.0.0},
+    publisher    = {Zenodo},
+    url          = {https://doi.org/10.5281/zenodo.3834733}
+    }
+```
 
 ## Authors
 Bagus Hanindhito  
