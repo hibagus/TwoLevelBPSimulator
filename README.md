@@ -158,7 +158,7 @@ Finally, I has derive how the simulator uses address bits to index the entry of 
 #### PAp (Per-Address Adaptive Branch Predictor using per-address pattern history table)
 ![PAp Indexing Scheme](img/PAp-Addressing-Scheme.png) 
 
-## Contributing and Citation
+## Contributing and Citing
 If you are interested to use or modify the code for your next project, please cite accordingly. I will be very grateful for any contribution on this code.
 ```
 @misc{bagus_hanindhito_2020_3834733,
